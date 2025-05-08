@@ -49,5 +49,13 @@ def create_app():
     # Create database tables
     with app.app_context():
         db.create_all()
+    @app.route("/")
+    def index():
+        return {"message": "Study Circle API is live!"}, 200
+
+    @app.route("/healthz")
+    def healthz():
+        return "OK", 200
+
     
     return app
